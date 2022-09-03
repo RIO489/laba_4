@@ -3,7 +3,7 @@ package Laba_1.Task8;
 public class Task8_main {
     public static void main(final String[] args) {
        final CustomDouble a = new CustomDouble(4,0.2);//4.2 + 3.9 = 8.1
-        final CustomDouble b = new CustomDouble(3,0.92);
+        final CustomDouble b = new CustomDouble(3,0.9);
         System.out.println("a plus b:");
         final  CustomDouble c = a.plus(b);
         c.Display();

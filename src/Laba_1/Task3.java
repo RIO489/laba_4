@@ -7,16 +7,16 @@ public class Task3 {
         System.out.print("Cycle Factorial : "+cycleFactorial(numberLength,numberFactorial)+ " ");
         System.out.print("Recursion Factorial : "+recFactorial(numberLength,numberFactorial,1) + " ");
     }
-    public  static int cycleFactorial(final int a, int b){
-        for (int i =1;i <= a;i++) {
-            b *=i;
+    public  static int cycleFactorial(final int length, int factorial){
+        for (int i =1;i <= length;i++) {
+            factorial *=i;
         }
-        return b;
+        return factorial;
     }
-    public  static int recFactorial(final int a, int b,final int i) {
-        if (i <= a) {
-            b *=  i;
-            return recFactorial(a, b, i + 1);
+    public  static int recFactorial(final int length, int factorial,final int i) {
+        if (i <= length) {
+            factorial *=  i;
+            return recFactorial(length, factorial, i + 1);
         }
-        return b;
+        return factorial;
     }}

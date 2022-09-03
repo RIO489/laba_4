@@ -5,35 +5,35 @@ public class Task5 {
         final int n =3;
         final int m =4;
         final  int [][] arr = new int[n][m];
-        create(arr,n,m);
+        create(arr);
         System.out.println("Arr:");
-        display(arr,n,m);
+        display(arr);
         final int [][] Tarr = new int[m][n];//створення нової матриця,яка буде транспоновуваною версією першої матриці
-        transposition(arr,n,m,Tarr);
+        transposition(arr,Tarr);
         System.out.println("Tarr:");
-        display(Tarr,m,n);
+        display(Tarr);
     }
-    public static void create(final int[][] arr,final int n,final int m)
+    public static void create(final int[][] arr)
     {
-        for (final int[] ints : arr)
-            for(int j = 0;j<m;j++)
-                ints[j] = (int )(Math.random() * 10);
+        for (int i = 0;i < arr.length;i++)
+            for(int j = 0;j<arr[i].length;j++)
+                arr[i][j] = (int )(Math.random() * 10);
     }
-    public static void display(final int[][] arr,final int n,final int m)
+    public static void display(final int[][] arr)
     {
-        for (final int[] ints : arr) {
-            for (int j = 0; j < m; j++) {
-                System.out.println(ints[j]);
+        for (int i =0;i< arr.length;i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                System.out.println(arr[i][j]);
             }
-            System.out.println(" ");
+            System.out.println("\n");
         }
 
 
     }
-    public  static  void transposition(final int[][] arr,final int n,final int m,final int[][] Tarr)
+    public  static  void transposition(final int[][] arr,final int[][] Tarr)
     {
-        for(int i =0;i < n;i++)
-            for(int j = 0;j<m;j++)
+        for(int i =0;i <arr.length;i++)
+            for(int j =0;j <arr[i].length;j++)
                 Tarr[j][i] = arr[i][j];
     }
 }

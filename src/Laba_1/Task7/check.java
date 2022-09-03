@@ -5,13 +5,13 @@ public class check {
     public static void main(final String[] args) {
         Product productArray;
         double  Sum = 0;
-       for(int i =0;i < products.length; i++)
+       for(final Pair i : products)
        {
-           productArray = products[i].getProduct();
-           System.out.println("Product "+(i+1)+"\n Name: "+productArray.getName()+" Price "+productArray.getPrice()+" Count: "+products[i].getCount());
-           Sum += productArray.getPrice() * products[i].getCount();
+           productArray = i.getProduct();
+           System.out.println("Product :"+"\n Name: "+productArray.getName()+"\n Price "+productArray.getPrice()+"\n Count: "+i.getCount());
+           Sum += productArray.getPrice() * i.getCount();
        }
-       System.out.println("\nSum of the products:"+Sum);
+       System.out.println("Sum of the products:"+Sum+"\n");
     }
     static final Pair[] products = new Pair[]{
             new Pair(new Product("Juice",10),100),

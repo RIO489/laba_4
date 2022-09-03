@@ -3,42 +3,42 @@ package Laba_1.Task8;
 import java.util.Objects;
 
 public class CustomDouble {
-    private int intove;
-    private double doublove;
-    public CustomDouble(final int intove,final double doublove)
+    private int whole;
+    private double fractional;
+    public CustomDouble(final int whole,final double doublove)
     {
-        this.intove = intove;
+        this.whole = whole;
         if(doublove<1) {
-            this.doublove = doublove;
+            this.fractional = doublove;
         }
         else
             System.out.println("Error:Can`t initialized second part");
     }
-    public int getIntove() {
-        return intove;
+    public int getWhole() {
+        return whole;
     }
 
-    public void setIntove(final int intove) {
-        this.intove = intove;
+    public void setWhole(final int whole) {
+        this.whole = whole;
     }
 
-    public double getDoublove() {
-        return doublove;
+    public double getFractional() {
+        return fractional;
     }
 
-    public void setDoublove(final double doublove) {
-        this.doublove = doublove;
+    public void setFractional(final double fractional) {
+        this.fractional = fractional;
     }
 
     public  CustomDouble plus(final CustomDouble b) {
         final CustomDouble a = new CustomDouble(0,0);
-        a.intove = intove + b.getIntove();
-        a.doublove =10*doublove + b.getDoublove();
+        a.whole = whole + b.getWhole();
+        a.fractional =fractional + b.getFractional();
         final int numberInt;
-        if (a.doublove >= 1) {
-            numberInt = (int) a.doublove;
-           a.doublove = a.doublove - numberInt;
-            a.intove = a.intove + numberInt;
+        if (a.fractional >= 1) {
+            numberInt = (int) a.fractional;
+           a.fractional = a.fractional - numberInt;
+            a.whole = a.whole + numberInt;
         }
         return a;
     }
@@ -48,44 +48,34 @@ public class CustomDouble {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         final CustomDouble that = (CustomDouble) o;
-        return intove == that.intove && Double.compare(that.doublove, doublove) == 0;
+        return whole == that.whole && Double.compare(that.fractional, fractional) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(intove, doublove);
+        return Objects.hash(whole, fractional);
     }
 
     public CustomDouble minus(final CustomDouble c) {
         final CustomDouble a = new CustomDouble(0,0);
-        a.intove = intove - c.getIntove();
-        a.doublove = doublove - c.getDoublove();
+        a.whole = whole - c.getWhole();
+        a.fractional = fractional - c.getFractional();
         final int numberInt;
-        if (a.doublove < 0.1) {
-            numberInt = (int) a.doublove;
-            a.doublove = -1.*a.doublove + numberInt;
-            a.intove = a.intove - numberInt;
+        if (a.fractional < 0.1) {
+            numberInt = (int) a.fractional;
+            a.fractional = a.fractional + numberInt;
+            a.whole = a.whole - numberInt;
         }
         return a;
     }
         public double toDouble()
             {
-              final double a = intove + doublove;
-                return a;
+                return whole + fractional;
             }
 
             public void Display()
             {
-                System.out.println(intove + doublove);
+                System.out.println(whole + fractional);
             }
     }
-// 5.6
-//+
-//6.7
-//11 1.3 =>  12 0.3 => 12.3
 
-
-//5.6
-//-
-//4.9
-//(5-4) (0.6 -0.9)=> (1) (-0.3) => 1 + -0.3 => 0.7
