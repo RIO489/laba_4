@@ -6,7 +6,15 @@ public class House {
 private int size;
 private List<Room> rooms;
 
-public House(final int size,final List<Room> rooms)
+    @Override
+    public String toString() {
+        return "House{" +
+                "size=" + size +
+                ", rooms=" + rooms +
+                '}';
+    }
+
+    public House(final int size, final List<Room> rooms)
 {
     this.rooms = rooms;
     this.size = size;

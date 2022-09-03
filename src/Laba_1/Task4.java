@@ -9,18 +9,24 @@ public class Task4 {
     }
     public  static void create(final int[] a)
     {
-        for(int i =0;i<100;i++)
+        int i =0;
+        while (i<100) {
             a[i] = i+1;
+            i++;
+        }
     }
     public static  void display(final int[] a)
     {
-        for(int i = 0;i<100;i++)
+        int i = 0;
+        while (i<100) {
             System.out.println(a[i]);
+            i++;
+        }
     }
     public static void sort(final int[] a)
     {
-        for(int i = 0;i<100;i++)
-        {
+        int i = 0;
+        while (i<100) {
             if(a[i] %3 == 0 && a[i] %5 == 0)
                 System.out.println("FizzBuzz");
             else
@@ -31,6 +37,7 @@ public class Task4 {
                 System.out.println("Buzz");
             else
                 System.out.println(a[i]);
+            i++;
         }
     }
 }

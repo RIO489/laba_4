@@ -8,7 +8,11 @@ public class CustomDouble {
     public CustomDouble(final int intove,final double doublove)
     {
         this.intove = intove;
-        this.doublove = doublove;
+        if(doublove<1) {
+            this.doublove = doublove;
+        }
+        else
+            System.out.println("Error:Can`t initialized second part");
     }
     public int getIntove() {
         return intove;
@@ -29,10 +33,12 @@ public class CustomDouble {
     public  CustomDouble plus(final CustomDouble b) {
         final CustomDouble a = new CustomDouble(0,0);
         a.intove = intove + b.getIntove();
-        a.doublove =doublove + b.getDoublove();
-        while (a.doublove >= 1) {
-           a.doublove = a.doublove - 1.0;
-            a.intove = a.intove + 1;
+        a.doublove =10*doublove + b.getDoublove();
+        final int numberInt;
+        if (a.doublove >= 1) {
+            numberInt = (int) a.doublove;
+           a.doublove = a.doublove - numberInt;
+            a.intove = a.intove + numberInt;
         }
         return a;
     }
@@ -54,9 +60,11 @@ public class CustomDouble {
         final CustomDouble a = new CustomDouble(0,0);
         a.intove = intove - c.getIntove();
         a.doublove = doublove - c.getDoublove();
-        while (a.doublove < 0.1) {
-            a.doublove = a.doublove + 1;
-            a.intove =a.intove - 1;
+        final int numberInt;
+        if (a.doublove < 0.1) {
+            numberInt = (int) a.doublove;
+            a.doublove = -1.*a.doublove + numberInt;
+            a.intove = a.intove - numberInt;
         }
         return a;
     }
@@ -75,3 +83,9 @@ public class CustomDouble {
 //+
 //6.7
 //11 1.3 =>  12 0.3 => 12.3
+
+
+//5.6
+//-
+//4.9
+//(5-4) (0.6 -0.9)=> (1) (-0.3) => 1 + -0.3 => 0.7
