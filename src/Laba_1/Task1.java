@@ -4,49 +4,25 @@ import java.util.Arrays;
 import java.util.Comparator;
 public class Task1 {
     public static void main(final String[] args) {
-        final String str ="[abc aabc aaabv]";
+        final String str ="aabc aaabv abc ";
         final char symbol = 'a';
-        System.out.println("String before replacing = \"" + str +"\"");
-
-        final String out = sortByA(str,symbol);
-        System.out.println("String after replacing = \"" + out +"\"");
+        System.out.println("Before replacing = \n" + str);
+        final String result = sort(str,symbol);
+        System.out.println("After replacing = \n" + result);
     }
+   public static String sort(final String str,final char symbol){
 
-   /* public static void sort(final String str,final char symbol) {
-        final  char[] chars = str.toCharArray();
-        int count = 0;
-        for(int i =0;i < chars.length;i++)
-        {
-            if(chars[i]  == ' ')
-            {
-                System.out.println(count);
-                count = 0;
-            }
-                if (chars[i] == symbol) {
-                    count++;
-                }
-        }*/
-//        Arrays.sort(chars);
-//        str = new String(chars);
-//        System.out.println(count);
-   public static String sortByA(final String arg,final char symbol){
-
-       final String[] result = arg.split(" ");
-
-       final Comparator<String> comp = Comparator.comparing(word -> countALetter(word,symbol));
+       final String[] result = str.split(" ");
+       final Comparator<String> comp = Comparator.comparing(word -> count(word,symbol));
        Arrays.sort(result, comp.reversed());
-
        return Arrays.toString(result);
    }
-
-    private static int countALetter(final String word,final char symbol)
+    private static int count(final String word,final char symbol)
     {
-        final char someChar = symbol;
         int count = 0;
-
         for (int i = 0; i < word.length(); i++)
         {
-            if (word.charAt(i) == someChar)
+            if (word.charAt(i) == symbol)
             {
                 count++;
             }

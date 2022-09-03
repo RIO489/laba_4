@@ -9,13 +9,13 @@ public class check {
        {
            productArray = products[i].getProduct();
            System.out.println("Product "+(i+1)+"\n Name: "+productArray.getName()+" Price "+productArray.getPrice()+" Count: "+products[i].getCount());
-           Sum = Sum + productArray.getPrice();
+           Sum += productArray.getPrice() * products[i].getCount();
        }
        System.out.println("\nSum of the products:"+Sum);
     }
     static final Pair[] products = new Pair[]{
             new Pair(new Product("Juice",10),100),
-        new Pair(new Product("Pasta",50),50),
+        new Pair(new Product("Cow",500),1),
             new Pair(new Product("Maks",0.1),1)
     };
 
