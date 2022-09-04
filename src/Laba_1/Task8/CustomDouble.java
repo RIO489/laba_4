@@ -5,14 +5,16 @@ import java.util.Objects;
 public class CustomDouble {
     private int whole;
     private double fractional;
-    public CustomDouble(final int whole,final double doublove)
+    public CustomDouble(final int whole,final double Fractional)
     {
         this.whole = whole;
-        if(doublove<1) {
-            this.fractional = doublove;
+        if(Fractional<1.) {
+            this.fractional = Fractional;
         }
-        else
-            System.out.println("Error:Can`t initialized second part");
+        else {
+            this.fractional = Fractional - (int) Fractional;
+            System.out.println("Error:Can`t initialized second part properly");
+        }
     }
     public int getWhole() {
         return whole;

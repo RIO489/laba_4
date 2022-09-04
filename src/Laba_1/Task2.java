@@ -15,3 +15,4 @@ public class Task2 {
         return str;
     }
 }
+
