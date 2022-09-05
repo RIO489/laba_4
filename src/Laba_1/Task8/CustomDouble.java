@@ -32,17 +32,12 @@ public class CustomDouble {
         this.fractional = fractional;
     }
 
-    public  CustomDouble plus(final CustomDouble b) {
-        final CustomDouble a = new CustomDouble(0,0);
-        a.whole = whole + b.getWhole();
-        a.fractional =fractional + b.getFractional();
-        final int numberInt;
-        if (a.fractional >= 1) {
-            numberInt = (int) a.fractional;
-           a.fractional = a.fractional - numberInt;
-            a.whole = a.whole + numberInt;
-        }
-        return a;
+    public  CustomDouble plus(final CustomDouble number2) {
+        final CustomDouble resultNumber = new CustomDouble(0,0);
+        final double number = this.toDouble() + number2.toDouble();
+        resultNumber.whole = (int)number;
+        resultNumber.fractional = number - resultNumber.whole;
+        return resultNumber;
     }
 
     @Override
@@ -58,17 +53,12 @@ public class CustomDouble {
         return Objects.hash(whole, fractional);
     }
 
-    public CustomDouble minus(final CustomDouble c) {
-        final CustomDouble a = new CustomDouble(0,0);
-        a.whole = whole - c.getWhole();
-        a.fractional = fractional - c.getFractional();
-        final int numberInt;
-        if (a.fractional < 0.1) {
-            numberInt = (int) a.fractional;
-            a.fractional = a.fractional + numberInt;
-            a.whole = a.whole - numberInt;
-        }
-        return a;
+    public CustomDouble minus(final CustomDouble number2) {
+        final CustomDouble resultNumber = new CustomDouble(0,0);
+        final double number = this.toDouble() - number2.toDouble();
+        resultNumber.whole = (int)number;
+        resultNumber.fractional = number - resultNumber.whole;
+        return resultNumber;
     }
         public double toDouble()
             {

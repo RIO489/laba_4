@@ -13,7 +13,7 @@ public class Calculator {
        return number1.toDouble() * number2.toDouble();
     }
     public static double divide(final CustomDouble number1,final CustomDouble number2) {
-        if (number1.toDouble() == 0 || number2.toDouble() == 0){
+        if (number2.toDouble() == 0){
             System.out.println("Error:Can`t divide by 0");
         return -1;
     }
