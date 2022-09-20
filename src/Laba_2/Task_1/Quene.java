@@ -40,20 +40,13 @@ public class Quene implements DuoQuene, Iterable<Integer> {
         return tail;
     }
 
-    public void display() {
-        while (head != null) {
-            System.out.println(head.getData());
-            head = head.getNext();
-        }
-    }
-
     @Override
     public Iterator<Integer> iterator() {
         return new Iterat();
     }
 
     public boolean isThereNext() {
-        if(head != null)// hmmmmmmmmmmmmmmmm
+        if(head != null)
         {
             head = head.getNext();
             return  true;
