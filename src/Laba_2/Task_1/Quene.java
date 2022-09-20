@@ -54,6 +54,21 @@ public class Quene implements DuoQuene, Iterable<Integer> {
         return  false;
     }
 
+    public class Iterat implements java.util.Iterator<Integer> {
+        private Node<Integer>  thisNode = head;
+        @Override
+        public boolean hasNext() {
+            return isThereNext();
+        }
+
+        @Override
+        public Integer next() {
+            final Node tmp = thisNode;
+            thisNode = thisNode.getNext();
+            return (Integer) tmp.getData();
+    }
+}
+
 //    public int sizeOf() {
 //        int size = 0;
 //        while (head.getNext() != null) {
@@ -83,17 +98,4 @@ public class Quene implements DuoQuene, Iterable<Integer> {
 //        return x.getData();
 //    }
 
-    public class Iterat implements java.util.Iterator<Integer> {
-        private Node<Integer>  thisNode = head;
-        @Override
-        public boolean hasNext() {
-            return isThereNext();
-        }
-
-        @Override
-        public Integer next() {
-            final Node tmp = thisNode;
-            thisNode = thisNode.getNext();
-            return (Integer) tmp.getData();
-    }
-}}
+}
