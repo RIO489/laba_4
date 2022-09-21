@@ -1,5 +1,6 @@
 package Laba_2.Task_2;
 
+import Laba_2.Task_3.service.addSubject;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -15,33 +16,42 @@ public class task_2 {
         final Subject subject1 = new Subject("Math");
         final Subject subject2 = new Subject("Java");
         final Subject subject3 = new Subject("PE");
-        final HashMap<Subject, Integer> map = new HashMap<Subject, Integer>();
 
-        final Timetable timetable1 = new Timetable(LocalDate.of(2021,9,22),subject1);
-        final Timetable timetable2 = new Timetable(LocalDate.of(2021,9,23),subject2);
-        final Timetable timetable3 = new Timetable(LocalDate.of(2021,9,22),subject3);
-        final Timetable timetable4 = new Timetable(LocalDate.of(2021,9,23),subject1);
+        final Timetable timetable1 = new Timetable(LocalDate.of(2021, 9, 22), subject1, null);
+        final Timetable timetable2 = new Timetable(LocalDate.of(2021, 9, 23), subject2, null);
+        final Timetable timetable3 = new Timetable(LocalDate.of(2021, 9, 22), subject3, null);
+        final Timetable timetable4 = new Timetable(LocalDate.of(2021, 9, 23), subject1, null);
 
-        final Group group1 = new Group(new ArrayList<>(), "IT-21", Stream.of(subject1, subject2, subject3).collect(Collectors.toList()),Stream.of(timetable1,timetable2).collect(Collectors.toList()));
-        final Group group2 = new Group(new ArrayList<>(), "IT-22", Stream.of(subject1, subject2, subject3).collect(Collectors.toList()),Stream.of(timetable3,timetable4).collect(Collectors.toList()));
+        final Group group1 = new Group(new ArrayList<>(), "IT-21", Stream.of(subject1, subject2, subject3).collect(Collectors.toList()), Stream.of(timetable1, timetable2).collect(Collectors.toList()));
+        final Group group2 = new Group(new ArrayList<>(), "IT-22", Stream.of(subject1, subject2, subject3).collect(Collectors.toList()), Stream.of(timetable3, timetable4).collect(Collectors.toList()));
 
-        final Student student1 = new Student("Arsen", group1, map);
+        addGroupToTimetable(group1, timetable1);
+        addGroupToTimetable(group1, timetable2);
+        addGroupToTimetable(group2, timetable3);
+        addGroupToTimetable(group2, timetable4);
+
+        final Student student1 = new Student("Arsen", group1, new HashMap<Subject, Integer>());
         addSubjectToStudent(student1, 99);
 
-        final Student student2 = new Student("Senya", group1, map);
+        final Student student2 = new Student("Senya", group1, new HashMap<Subject, Integer>());
         addSubjectToStudent(student2, 88);
 
-        final Student student3 = new Student("Maks", group2, map);
+        final Student student3 = new Student("Maks", group2, new HashMap<Subject, Integer>());
         addSubjectToStudent(student3, 79);
 
-        final Student student4 = new Student("Sanya", group2, map);
+        final Student student4 = new Student("Sanya", group2, new HashMap<Subject, Integer>());
         addSubjectToStudent(student4, 100);
 
-        group1.getStudents().addAll(Stream.of(student1,student2).collect(Collectors.toList()));
-        group2.getStudents().addAll(Stream.of(student3,student4).collect(Collectors.toList()));
+        group1.getStudents().addAll(Stream.of(student1, student2).collect(Collectors.toList()));
+        group2.getStudents().addAll(Stream.of(student3, student4).collect(Collectors.toList()));
 
         final University university = new University(new ArrayList<>());
-        university.setGroups(Stream.of(group1,group2).collect(Collectors.toList()));
+        university.setGroups(Stream.of(group1, group2).collect(Collectors.toList()));
+        System.out.println(university);
+
+
+        final Subject newSubject1 = new Subject("OIT");
+        addSubject.ToGroup(group1, newSubject1);
         System.out.println(university);
     }
 
@@ -51,5 +61,7 @@ public class task_2 {
         student.getSubjects().put(new Subject("PE"), mark);
     }
 
-    ;
+    public static void addGroupToTimetable(final Group group, final Timetable timetable) {
+        timetable.setGroup(group);
+    }
 }

@@ -3,8 +3,8 @@ package Laba_2.Task_3.service;
 import Laba_2.Task_2.ownServices.*;
 import Laba_2.Task_2.*;
 
-public class addSubjectToGroup {
-    public void addSubjectToGroup(final Group group, final Subject newSubject) {
+public class addSubject {
+    public static void ToGroup(final Group group, final Subject newSubject) {
         for (final Student student : group.getStudents()) {
             if (getSubjectByName.withStudent(student, newSubject.getName()) == null) {//check for already added subject
                 student.getSubjects().put(newSubject, null);

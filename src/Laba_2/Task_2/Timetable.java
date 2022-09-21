@@ -1,14 +1,18 @@
 package Laba_2.Task_2;
 
+import java.nio.file.attribute.GroupPrincipal;
 import java.time.LocalDate;
 
 public class Timetable {
     private LocalDate date;
     private Subject subject;
 
-    public Timetable(final LocalDate date, final Subject subject) {
+    private Group group;
+
+    public Timetable(final LocalDate date, final Subject subject, final Group group) {
         this.date = date;
         this.subject = subject;
+        this.group = group;
     }
 
     public LocalDate getDate() {
@@ -27,9 +31,18 @@ public class Timetable {
         this.subject = subject;
     }
 
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(final Group group) {
+        this.group = group;
+    }
+
     @Override
     public String toString() {
         return "Timetable{" +
+                "group=" + group.getName() +
                 ", subject=" + subject.getName() +
                 ", date=" + date +
                 '}';
