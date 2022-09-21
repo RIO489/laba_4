@@ -1,6 +1,7 @@
 package Laba_2.Task_2;
 
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,8 +17,13 @@ public class task_2 {
         final Subject subject3 = new Subject("PE");
         final HashMap<Subject, Integer> map = new HashMap<Subject, Integer>();
 
-        final Group group1 = new Group(new ArrayList<>(), "IT-21", Stream.of(subject1, subject2, subject3).collect(Collectors.toList()));
-        final Group group2 = new Group(new ArrayList<>(), "IT-22", Stream.of(subject1, subject2, subject3).collect(Collectors.toList()));
+        final Timetable timetable1 = new Timetable(LocalDate.of(2021,9,22),subject1);
+        final Timetable timetable2 = new Timetable(LocalDate.of(2021,9,23),subject2);
+        final Timetable timetable3 = new Timetable(LocalDate.of(2021,9,22),subject3);
+        final Timetable timetable4 = new Timetable(LocalDate.of(2021,9,23),subject1);
+
+        final Group group1 = new Group(new ArrayList<>(), "IT-21", Stream.of(subject1, subject2, subject3).collect(Collectors.toList()),Stream.of(timetable1,timetable2).collect(Collectors.toList()));
+        final Group group2 = new Group(new ArrayList<>(), "IT-22", Stream.of(subject1, subject2, subject3).collect(Collectors.toList()),Stream.of(timetable3,timetable4).collect(Collectors.toList()));
 
         final Student student1 = new Student("Arsen", group1, map);
         addSubjectToStudent(student1, 99);
@@ -25,10 +31,10 @@ public class task_2 {
         final Student student2 = new Student("Senya", group1, map);
         addSubjectToStudent(student2, 88);
 
-        final Student student3 = new Student("Maks", group1, map);
+        final Student student3 = new Student("Maks", group2, map);
         addSubjectToStudent(student3, 79);
 
-        final Student student4 = new Student("Sanya", group1, map);
+        final Student student4 = new Student("Sanya", group2, map);
         addSubjectToStudent(student4, 100);
 
         group1.getStudents().addAll(Stream.of(student1,student2).collect(Collectors.toList()));

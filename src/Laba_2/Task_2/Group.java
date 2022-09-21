@@ -5,13 +5,14 @@ import java.util.List;
 public class Group {
     private List<Student> students;
     private String name;
-
     private List<Subject> subjects;
+    private List<Timetable> timetable;
 
-    public Group(final List<Student> students, final String name, final List<Subject> subjects) {
+    public Group(final List<Student> students, final String name, final List<Subject> subjects, final  List<Timetable> timetable) {
         this.students = students;
         this.name = name;
         this.subjects = subjects;
+        this.timetable = timetable;
     }
 
     public List<Subject> getSubjects() {
@@ -38,12 +39,21 @@ public class Group {
         this.name = name;
     }
 
+    public  List<Timetable> getTimetable() {
+        return timetable;
+    }
+
+    public void setTimetable(final  List<Timetable> timetable) {
+        this.timetable = timetable;
+    }
+
     @Override
     public String toString() {
-        return "\n" + "Group{" +
-                ", name='" + name + '\'' + ",\n"+
-                "students=" + students + ",\n"+
-                "Group`s subjects=" + subjects +
+        return "\n"+ "\n Group{" +
+                "name='" + name  +
+                "\n students=" + students +
+                ", subjects=" + subjects +
+                ", timetable=" + timetable +
                 '}';
     }
 }

@@ -42,8 +42,9 @@ public class Student {
     public String toString() {
         return "Student{" +
                 "name='" + name + '\'' +
-                ", subjects=" + subjects +
-                '}';
+                " , group=" + group.getName() +
+                " \n subjects=" + subjects +
+                '}' + "\n";
     }
 }
 

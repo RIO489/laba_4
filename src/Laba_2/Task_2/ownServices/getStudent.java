@@ -2,8 +2,16 @@ package Laba_2.Task_2.ownServices;
 
 import Laba_2.Task_2.*;
 
-public class getStudentByName {
-    public Student getStudentByName(final Group group, final String name)
+public class getStudent {
+    private final Group group;
+    private final String name;
+
+    public getStudent(final Group group, final String name) {
+        this.group = group;
+        this.name = name;
+    }
+
+    public Student getStudentByName()
     {
         for(final Student student:group.getStudents()){
             if(student.getName().equals(name)){

@@ -4,22 +4,23 @@ import Laba_2.Task_2.*;
 
 
 public class getSubjectByName {
-    public Subject getSubjectByNameStudent(final Student student, final String name) {
+
+    public static Subject withStudent(final Student student, final String name) {
             for (final Subject key : student.getSubjects().keySet())
                     if(key.getName().equals(name)) {
                         return key;
                     }
-        System.out.println("Can`t find Subject with this name");
+        //System.out.println("Can`t find Subject with this name");
         return null;
     }
 
-    public Subject getSubjectByNameGroup(final Group group, final String name) {
+    public static Subject withGroup(final Group group, final String name) {
         for (final Subject subject : group.getSubjects()) {
             if (subject.getName().equals(name)) {
                 return subject;
             }
         }
-        System.out.println("Can`t find Subject with this name");
+        //System.out.println("Can`t find Subject with this name");
         return null;
     }
 
