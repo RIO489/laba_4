@@ -1,12 +1,11 @@
 package Laba_2.Task_2;
 
-import Laba_2.Task_3.service.addSubject;
+import Laba_2.Task_3.service.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -30,16 +29,16 @@ public class task_2 {
         addGroupToTimetable(group2, timetable3);
         addGroupToTimetable(group2, timetable4);
 
-        final Student student1 = new Student("Arsen", group1, new HashMap<Subject, Integer>());
+        final Student student1 = new Student("Arsen", group1, new HashMap<>());
         addSubjectToStudent(student1, 99);
 
-        final Student student2 = new Student("Senya", group1, new HashMap<Subject, Integer>());
+        final Student student2 = new Student("Senya", group1, new HashMap<>());
         addSubjectToStudent(student2, 88);
 
-        final Student student3 = new Student("Maks", group2, new HashMap<Subject, Integer>());
+        final Student student3 = new Student("Maks", group2, new HashMap<>());
         addSubjectToStudent(student3, 79);
 
-        final Student student4 = new Student("Sanya", group2, new HashMap<Subject, Integer>());
+        final Student student4 = new Student("Sanya", group2, new HashMap<>());
         addSubjectToStudent(student4, 100);
 
         group1.getStudents().addAll(Stream.of(student1, student2).collect(Collectors.toList()));
@@ -50,9 +49,21 @@ public class task_2 {
         System.out.println(university);
 
 
+        //Testing task_3
+
         final Subject newSubject1 = new Subject("OIT");
         addSubject.ToGroup(group1, newSubject1);
         System.out.println(university);
+
+        addToTimetable.newLesson(group1,"OIT",LocalDate.of(2022,9,25));
+        System.out.println(university);
+
+        sortStudents.inAlphabetOrder(university);
+        System.out.println(university);
+
+        System.out.println("\nSorted students:");
+        final List<Student> sortedList = getStudents.withSameSubject(university,"OIT");
+        System.out.println(sortedList);
     }
 
     public static void addSubjectToStudent(final Student student, final int mark) {
