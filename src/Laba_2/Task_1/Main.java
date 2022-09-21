@@ -5,8 +5,9 @@ public class Main {
         final Quene quene = new Quene();
         quene.setFirst(2);
        quene.setFirst(1);
-        quene.setLast(3);
+       quene.add(3);
         quene.setLast(4);
+        quene.setLast(5);
         for(final int asd : quene) {
             System.out.println(asd);
         }

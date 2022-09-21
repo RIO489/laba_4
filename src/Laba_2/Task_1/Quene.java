@@ -6,6 +6,10 @@ public class Quene implements DuoQuene, Iterable<Integer> {
     protected Node<Integer> head;
     protected Node<Integer> tail;
 
+    public void add(final int value) {
+        setLast(value);
+    }
+
     public void setFirst(final int value) {
         final Node<Integer> newNode = new Node<>(null, value, this.head);
         if (head == null) {
