@@ -1,4 +1,4 @@
-package Laba_2.Task_1;
+package Laba_2.task_1;
 
 import java.util.Iterator;
 

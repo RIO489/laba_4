@@ -1,10 +1,9 @@
-package Laba_2.Task_3.service;
+package Laba_2.task_3.service;
 
-import Laba_2.Task_2.*;
-import Laba_2.Task_2.ownServices.*;
+import Laba_2.task_2.*;
+import Laba_2.task_2.ownServices.*;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class getStudents {

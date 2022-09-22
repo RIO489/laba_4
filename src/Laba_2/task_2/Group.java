@@ -1,4 +1,4 @@
-package Laba_2.Task_2;
+package Laba_2.task_2;
 
 import java.util.List;
 

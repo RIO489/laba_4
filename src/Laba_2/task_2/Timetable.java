@@ -1,6 +1,5 @@
-package Laba_2.Task_2;
+package Laba_2.task_2;
 
-import java.nio.file.attribute.GroupPrincipal;
 import java.time.LocalDate;
 
 public class Timetable {

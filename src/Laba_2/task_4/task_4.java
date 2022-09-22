@@ -1,17 +1,23 @@
-package Laba_2.Task_2;
+package Laba_2.task_4;
 
-import Laba_2.Task_3.service.*;
+import Laba_2.task_2.*;
+
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class task_2 {
-    public static void main(final String[] args) {
+import Laba_2.task_2.ownServices.*;
+import Laba_2.task_3.service.*;
+import Laba_2.task_3.*;
 
+import static Laba_2.task_2.task_2.addGroupToTimetable;
+
+public class task_4 {
+
+    public static void main(final String[] args) {
         final Subject subject1 = new Subject("Math");
         final Subject subject2 = new Subject("Java");
         final Subject subject3 = new Subject("PE");
@@ -23,6 +29,7 @@ public class task_2 {
 
         final Group group1 = new Group(new ArrayList<>(), "IT-21", Stream.of(subject1, subject2, subject3).collect(Collectors.toList()), Stream.of(timetable1, timetable2).collect(Collectors.toList()));
         final Group group2 = new Group(new ArrayList<>(), "IT-22", Stream.of(subject1, subject2, subject3).collect(Collectors.toList()), Stream.of(timetable3, timetable4).collect(Collectors.toList()));
+
 
         addGroupToTimetable(group1, timetable1);
         addGroupToTimetable(group1, timetable2);
@@ -48,22 +55,30 @@ public class task_2 {
         university.setGroups(Stream.of(group1, group2).collect(Collectors.toList()));
         System.out.println(university);
 
-
-        //Testing task_3
-
-        final Subject newSubject1 = new Subject("OIT");
+        final Subject newSubject1 = new Subject("OIT");//still task_3
         addSubject.ToGroup(group1, newSubject1);
         System.out.println(university);
 
-        addToTimetable.newLesson(group1,"OIT",LocalDate.of(2022,9,25));
+        System.out.println("New marks:");
+        final Journal journal1 = new Journal(student1, student1.getSubjects());//task_4
+        journal1.addMark("OIT", 50);
+        final Journal journal2 = new Journal(student2, student2.getSubjects());//task_4
+        journal2.changeMark("OIT", 55);
         System.out.println(university);
 
-        sortStudents.inAlphabetOrder(university);
+        journal1.deleteMark("OIT");
         System.out.println(university);
 
-        System.out.println("\nSorted students:");
-        final List<Student> sortedList = getStudents.withSameSubject(university,"OIT");
-        System.out.println(sortedList);
+        System.out.println("All Marks:");
+        journal1.displayAllMarksAllStudent(university);
+        System.out.println();
+
+        System.out.println("One student:");
+        journal1.displayAllMarksOneStudent();
+        System.out.println();
+
+        System.out.println("One subject:");
+        journal1.displayAllMarksSameSubject(university, "OIT");
     }
 
     public static void addSubjectToStudent(final Student student, final int mark) {

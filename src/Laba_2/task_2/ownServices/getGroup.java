@@ -1,6 +1,6 @@
-package Laba_2.Task_2.ownServices;
+package Laba_2.task_2.ownServices;
 
-import Laba_2.Task_2.*;
+import Laba_2.task_2.*;
 
 
 public class getGroup {
