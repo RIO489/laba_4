@@ -37,7 +37,7 @@ public class task_4 {
         addGroupToTimetable(group2, timetable4);
 
         final Student student1 = new Student("Arsen", group1, new HashMap<>());
-        addSubjectToStudent(student1, 99);
+        addSubjectToStudent(student1, 101);
 
         final Student student2 = new Student("Senya", group1, new HashMap<>());
         addSubjectToStudent(student2, 88);
@@ -58,6 +58,8 @@ public class task_4 {
         final Subject newSubject1 = new Subject("OIT");//still task_3
         addSubject.ToGroup(group1, newSubject1);
         System.out.println(university);
+
+        //task_4:
 
         System.out.println("New marks:");
         final Journal journal1 = new Journal(student1, student1.getSubjects());//task_4

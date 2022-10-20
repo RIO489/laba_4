@@ -75,16 +75,16 @@ public class Journal {
     }
 
     public void displayAllMarksAllStudent(final University university) {
-//university.getGroups().
-//        stream().
-//        distinct().
-//        forEach(group-> group.getStudents()
-//                .stream()
-//                .forEach(student->student.getSubjects()
-//                        .entrySet()
-//                        .stream()
-//                        .distinct()
-//                        .forEach(entry->entry.getValue())));
+university.getGroups().
+        stream().
+        distinct().
+        forEach(group-> group.getStudents()
+                .stream()
+                .forEach(student->student.getSubjects()
+                        .entrySet()
+                        .stream()
+                        .distinct()
+                        .forEach(entry->entry.getValue())));
 
         for (final Group group : university.getGroups()) {
             for (final Student oldStudent : group.getStudents()) {
@@ -106,16 +106,13 @@ public class Journal {
     }
 
     public void displayAllMarksSameSubject(final University university, final String subjectName) {
-        //  Subject targetSubject = null;
         for (final Group group : university.getGroups()) {
-            //  if(targetSubject == null)
-            //  targetSubject = getSubjectByName.withGroup(group,subjectName);
             for (final Student newStudent : group.getStudents()) {
-                //System.out.println(newStudent.getName());
                 newStudent.getSubjects()
                         .entrySet()
                         .stream()
-                        .distinct().filter(e -> e.getKey().getName().equals(subjectName))
+                        .distinct().
+                        filter(e -> e.getKey().getName().equals(subjectName))
                         .forEach(mark -> System.out.println(newStudent.getName()+"\n" + mark));
             }
         }
